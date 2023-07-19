@@ -26,6 +26,15 @@
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px; 
     padding: 42px;
+
+    .top-bar{
+        margin-bottom: 20px;
+        display: flex;
+        .title{
+            flex-grow: 1;
+            margin: 0;
+        }
+    }
 }
 .list-menu{
     display: flex;
@@ -47,7 +56,7 @@
             background: $light;
         }
         &.is-active {
-            background-color: #cff8ef;
+            background-color: #d4e5e2;
             color: $dark-green;
         }
     }

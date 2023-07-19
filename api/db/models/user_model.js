@@ -41,20 +41,7 @@ UserSchema.methods.toJSON = function(){
     return _.omit(userObject, ['password', 'sessions']);
 }
 
-/* UserSchema.methods.generateAccessAuthToken = function(){
-    const user = this;
-    return new Promise((resolve, reject) => {
-        //Create the json web token and return that
-        jwt.sign({_id: user._id.toHexString()}, jwtSecret, {expiresIn: "15m"}, (err, token) => {
-            if(!err){
-                resolve(token);
-            } else{
-                // there is an error
-                reject();
-            }
-        })
-    })
-} */
+
 UserSchema.methods.generateAccessAuthToken = function () {
     const user = this;
     return new Promise((resolve, reject) => {

@@ -22,6 +22,19 @@ export class AuthService{
       })
     )
   }
+
+  signup(email: string, password: string){
+    return this.webService.signup(email, password).pipe(
+      shareReplay(),
+      tap((res: HttpResponse<any>) =>{
+        // the auth tokens will be in the header of this response
+        this.setSession(res.body._id, res.headers.get('x-access-token'), res.headers.get('x-refresh-token'));
+        console.log('signed up successfully');
+        
+      })
+    )
+  }
+
   logout(){
     this.removeSession()
     this.router.navigate(['/login']);
@@ -31,19 +44,19 @@ export class AuthService{
     return localStorage.getItem('x-access-token')
   } */
   getAccessToken(): any   {
-    return localStorage.getItem('x-access-token') || '';
+    return localStorage.getItem('x-access-token');
  }
   /* getRefreshToken(){
     return localStorage.getItem('x-refresh-token')
   } */
   getRefreshToken(): any {
-    return localStorage.getItem('x-refresh-token') || '';
+    return localStorage.getItem('x-refresh-token');
  }
   /* getUserId(){
     return localStorage.getItem('user-id')
   } */
   getUserId(): any {
-    return localStorage.getItem('user-id') || '';
+    return localStorage.getItem('user-id');
  }
   setAccessToken(accessToken: any){
     localStorage.setItem('x-access-token', accessToken);

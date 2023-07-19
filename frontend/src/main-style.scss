@@ -3,10 +3,10 @@
 // Import Fonts (Lato and Nunito)
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700|Nunito:400,700');
 
-$turquoise: #44ddd0;
-$green: #27d7a1;
-$light-green: #45f69e; 
-$dark-green: rgb(0, 100, 80);
+$turquoise: #084e5c;
+$green: #0d6b7e;
+$light-green: #d4e5e2; 
+$dark-green: rgb(0, 100, 92);
 
 $light: #f8f8f8;
 
@@ -55,4 +55,9 @@ html, body {
     font-size: 24px;
     text-transform: uppercase;
     letter-spacing: 2px;
+}
+.white-box{
+    padding: 35px;
+    background: white;
+    border-radius: 5px;
 }
