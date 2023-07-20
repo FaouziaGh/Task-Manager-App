@@ -57,15 +57,17 @@
         }
         &.is-active {
             background-color: #d4e5e2;
-            color: $dark-green;
+            color: $dark-color;
         }
     }
 }
 .task{
+    display: flex;
     background: white;
     padding: 15px 20px;
     border-radius: 5px;
     margin-top: 10px;
+    align-items: center;
 
     &:not(.complete) {
         cursor: pointer;
@@ -75,12 +77,25 @@
         transform: scale(0.95);
     }
     &:hover{
-        box-shadow: 0 0 0 5px #eeeeee;;
+        box-shadow: 0 0 0 5px #eeeeee;
+        .task-buttons{
+            opacity: 1;
+            transform: scale(1);
+        }
     }
     }
-    &.completed {
+    &.completed .Task-text {
         text-decoration: line-through;
         opacity: 0.8;
+    }
+    .Task-text{
+        display: flex;
+        flex-grow: 1;
+    }
+    .task-buttons{
+        transition: opacity 0.2s, transform 0.2s;
+        opacity: 0;
+        transform: scale(0.85);
     }
 }
 .circle-add-button{
@@ -96,4 +111,7 @@
     font-size: 20px;
     color: #777;
     text-align: center;
+}
+.logout-button{
+    border: none;
 }
